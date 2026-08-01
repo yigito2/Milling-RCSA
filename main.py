@@ -1,4 +1,6 @@
 from fem.beam2d import ToolBeam
+from rcsa.coupling import couple
+from data.spindle_model import spindle_frf
 
 import matplotlib
 
@@ -112,3 +114,72 @@ print("Hcc shape :", Hcc.shape)
 print("Hcb shape :", Hcb.shape)
 print("Hbc shape :", Hbc.shape)
 print("Hbb shape :", Hbb.shape)
+
+
+freq = np.linspace(
+    1,
+    5000,
+    500
+)
+
+Hcc, Hcb, Hbc, Hbb = (
+    tool_rot.receptance_blocks(freq)
+)
+
+print()
+print("Hcc:", Hcc.shape)
+print("Hcb:", Hcb.shape)
+print("Hbc:", Hbc.shape)
+print("Hbb:", Hbb.shape)
+
+Hsp = spindle_frf(freq)
+
+Htool = couple(
+    Hcc,
+    Hcb,
+    Hbc,
+    Hbb,
+    Hsp
+)
+
+Gxx = Htool[:,0,0]
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10,5))
+
+plt.semilogy(
+    freq,
+    np.abs(Gxx)
+)
+
+plt.grid(True)
+
+plt.xlabel("Frequency [Hz]")
+plt.ylabel("|Gxx|")
+
+plt.title(
+    "RCSA Coupled Tool Tip FRF"
+)
+
+plt.show()
+
+Hsp = spindle_frf(freq)
+
+Htool = couple(
+    Hcc,
+    Hcb,
+    Hbc,
+    Hbb,
+    Hsp
+)
+
+print()
+print("Htool:", Htool.shape)
+
+Gxx = Htool[:,0,0]
+
+print(
+    "Max coupled receptance:",
+    np.max(np.abs(Gxx))
+)
