@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 
-
 def load_spindle_frf(csv_file):
 
     df = pd.read_csv(csv_file)

@@ -183,3 +183,12 @@ print(
     "Max coupled receptance:",
     np.max(np.abs(Gxx))
 )
+
+from data.spindle_reader import load_spindle_frf
+
+freq_csv, Hsp = load_spindle_frf(
+    "data/spindle_frf.csv"
+)
+
+print("CSV frequencies:", len(freq_csv))
+print("Hsp shape:", Hsp.shape)
