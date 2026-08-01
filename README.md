@@ -85,51 +85,18 @@ This approach reduces machine downtime while enabling rapid stability assessment
 
 # Current Methodology
 
-Tool Geometry
-
-↓
-
-Timoshenko Beam FEM
-
-↓
-
-Global Stiffness Matrix
-
-↓
-
-Global Mass Matrix
-
-↓
-
-Rotary Inertia
-
-↓
-
-Modal Analysis
-
-↓
-
-Mode Shapes
-
-↓
-
-Tool Tip FRF
-
-↓
-
-Receptance Matrices
-
-↓
-
-RCSA Coupling
-
-↓
-
-Stability Lobes
-
-↓
-
-Process Optimization
+1- Tool Geometry
+2- Timoshenko Beam FEM
+3- Global Stiffness Matrix
+4- Global Mass Matrix
+5- Rotary Inertia
+6- Modal Analysis
+7- Mode Shapes
+8- Tool Tip FRF
+9- Receptance Matrices
+10- RCSA Coupling
+11-Stability Lobes
+12-Process Optimization
 
 ---
 
