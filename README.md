@@ -287,3 +287,9 @@ The authors assume no responsibility for:
 This project is licensed under the MIT License.
 
 See the LICENSE file for details.
+
+---
+
+## Recent changes
+
+- 2026-08-16: Removed duplicate receptance_blocks definition from fem/beam2d.py to avoid confusion; retained single canonical implementation.
